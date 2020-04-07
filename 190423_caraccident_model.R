@@ -5,6 +5,8 @@ library(rpart.plot)
 library(caTools)
 library(dplyr)
 
+
+
 acc<-read.table("Z:/Thurstan/190423 car accidents/acc_Rin.csv"
                 ,comment.char = "", fill=TRUE,sep=",",header = T)
 
@@ -20,7 +22,14 @@ nrow(training_set)
 nrow(test_set)
 
 
-still need to check variable balance between the two 
+training_set[0:3,]
+
+
+summary(training_set$NumberVech)
+
+
+
+
 
 #below needs fixing for train / test setup
 
@@ -32,3 +41,8 @@ tree1 <- rpart(T_fatal_or_serious ~ NumberVech+NumberCasualties, data = acc)
 rpart.plot(tree1)
 
 T_fatal_or_serious
+
+rm() #removes DF
+
+
+
